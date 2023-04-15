@@ -8,12 +8,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hello"),
+      ),
+      body: Center(
         child: Container(
           child: Text("Welcome $name in $days days tutorial"),
         ),
       ),
+      drawer: Drawer(),
     );
   }
 }
