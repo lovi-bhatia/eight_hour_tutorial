@@ -62,7 +62,14 @@ class LoginPage extends StatelessWidget {
                     print("Login Pressed");
                   },
                   child: Text("Login"),
-                  style: TextButton.styleFrom(),
+                  style: TextButton.styleFrom(
+                      shadowColor: Colors.yellow,
+                      // iconColor: Colors.pink,
+                      foregroundColor: Colors.tealAccent,
+                      backgroundColor: Colors.black,
+                      surfaceTintColor: Colors.red,
+                      
+                      ),
                 ),
               ],
             ),
