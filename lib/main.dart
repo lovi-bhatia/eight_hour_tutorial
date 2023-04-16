@@ -1,3 +1,4 @@
+import 'package:eight_hour_tutorial/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 
@@ -12,7 +13,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      // home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+
+      // theme change
+      // themeMode: ThemeMode.dark,
+      // darkTheme: ThemeData(brightness: Brightness.dark),
+
+      routes: {
+        // "/"-> means home route (default)
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage()
+      },
     );
   }
 }
