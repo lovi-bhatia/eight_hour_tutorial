@@ -1,3 +1,4 @@
+import 'package:eight_hour_tutorial/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,9 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.loginRoute);
+              },
               leading: Icon(
                 CupertinoIcons.hammer,
                 color: Colors.white,
