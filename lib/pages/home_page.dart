@@ -8,7 +8,7 @@ import '../widgets/drawer.dart';
 import 'dart:convert';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  // const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -26,19 +26,25 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 1));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
     final decodeData = jsonDecode(catalogJson);
     // print(decodeData);
 
     var productsData = decodeData["products"];
-    print(productsData);
+    // print(productsData);
+
+    CatalogModel.items = List.from(productsData)
+        .map<Item>((item) => Item.fromMap(item))
+        .toList();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(
-        CatalogModel.items.length, (index) => CatalogModel.items[0]);
+    // final dummyList = List.generate(
+    //     CatalogModel.items.length, (index) => CatalogModel.items[0]);
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: Colors.white,
@@ -53,14 +59,16 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: dummyList.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: dummyList[index],
-            );
-          },
-        ),
+        child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
+            ? ListView.builder(
+                itemCount: CatalogModel.items?.length,
+                itemBuilder: (context, index) => ItemWidget(
+                  item: CatalogModel.items![index],
+                ),
+              )
+            : Center(
+                child: CircularProgressIndicator(),
+              ),
       ),
       drawer: MyDrawer(),
     );

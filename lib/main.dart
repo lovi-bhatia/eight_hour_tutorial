@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // "/"-> means home route (default)
         "/": (context) => LoginPage(),
-        MyRoutes.homeRoute: (context) => const HomePage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => const LoginPage()
       },
     );
