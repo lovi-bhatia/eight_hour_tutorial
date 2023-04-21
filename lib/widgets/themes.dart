@@ -18,7 +18,12 @@ class MyTheme {
             color: Colors.black,
           ),
           toolbarTextStyle: Theme.of(context).textTheme.bodyMedium,
-          titleTextStyle: Theme.of(context).textTheme.titleLarge,
+          // titleTextStyle: Theme.of(context).textTheme.titleLarge,
+          titleTextStyle: TextStyle(
+            color: darkBluishColor,
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
         ),
       );
 
@@ -41,7 +46,15 @@ class MyTheme {
             color: Colors.white,
           ),
           toolbarTextStyle: Theme.of(context).textTheme.bodyMedium,
-          titleTextStyle: Theme.of(context).textTheme.titleLarge,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+          // titleTextStyle: Theme.of(context).textTheme.titleLarge.copyWith(
+          //       !headline6: context.textTheme.headlineMedium
+          //           .copyWith(color: Colors.white),
+          //     ),
         ),
       );
 
