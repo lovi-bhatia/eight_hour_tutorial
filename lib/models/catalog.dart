@@ -101,16 +101,16 @@ class Item {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Item &&
-        o.id == id &&
-        o.name == name &&
-        o.desc == desc &&
-        o.price == price &&
-        o.color == color &&
-        o.image == image;
+    return other is Item &&
+        other.id == id &&
+        other.name == name &&
+        other.desc == desc &&
+        other.price == price &&
+        other.color == color &&
+        other.image == image;
   }
 
   @override
