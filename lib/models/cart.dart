@@ -1,12 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:velocity_x/velocity_x.dart';
+
+import 'package:eight_hour_tutorial/core/core.dart';
 import 'package:eight_hour_tutorial/models/catalog.dart';
-import 'package:flutter/material.dart';
 
 class CartModel {
-  static final cartModel = CartModel._internal();
+  // static final cartModel = CartModel._internal();
 
-  CartModel._internal();
+  // CartModel._internal();
 
-  factory CartModel() => cartModel;
+  // factory CartModel() => cartModel;
 
   late CatalogModel _catalog;
 
@@ -36,5 +39,18 @@ class CartModel {
   // Remove item
   void remove(Item item) {
     _itemIds.remove(item.id);
+  }
+}
+
+class AddMutation extends VxMutation<MyStore> {
+  final Item item;
+
+  AddMutation({
+    required this.item,
+  });
+
+  @override
+  perform() {
+    store!.cart._itemIds.add(item.id);
   }
 }
